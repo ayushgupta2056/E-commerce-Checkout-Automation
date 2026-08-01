@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Shopping Cart</h1>
+{% if cart["items"] %}
+<table data-testid="cart-table">
+    <thead>
+        <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Line total</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        {% for item in cart["items"] %}
+        <tr data-testid="cart-row-{{ item.product_id }}">
+            <td data-testid="cart-name-{{ item.product_id }}">{{ item.name }}</td>
+            <td data-testid="cart-price-{{ item.product_id }}">${{ "%.2f"|format(item.price) }}</td>
+            <td>
+                <form method="post" class="inline-form">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="product_id" value="{{ item.product_id }}">
+                    <input name="quantity" type="number" min="1" value="{{ item.quantity }}" data-testid="cart-quantity-{{ item.product_id }}">
+                    <button type="submit" data-testid="update-item-{{ item.product_id }}">Update</button>
+                </form>
+            </td>
+            <td data-testid="line-total-{{ item.product_id }}">${{ "%.2f"|format(item.line_total) }}</td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="action" value="remove">
+                    <input type="hidden" name="product_id" value="{{ item.product_id }}">
+                    <button type="submit" data-testid="remove-item-{{ item.product_id }}">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<form method="post" class="discount-form">
+    <input type="hidden" name="action" value="discount">
+    <label for="discount_code">Discount code</label>
+    <input id="discount_code" name="discount_code" data-testid="discount-code-input">
+    <button type="submit" data-testid="apply-discount-button">Apply</button>
+</form>
+<section class="totals" data-testid="cart-totals">
+    <p>Subtotal: <strong data-testid="subtotal">${{ "%.2f"|format(cart.subtotal) }}</strong></p>
+    <p>Tax: <strong data-testid="tax">${{ "%.2f"|format(cart.tax) }}</strong></p>
+    <p>Discount: <strong data-testid="discount">${{ "%.2f"|format(cart.discount) }}</strong></p>
+    <p>Final Total: <strong data-testid="final-total">${{ "%.2f"|format(cart.final_total) }}</strong></p>
+</section>
+<a class="button-link" href="{{ url_for('checkout') }}" data-testid="checkout-link">Checkout</a>
+{% else %}
+<p data-testid="empty-cart-message">Your cart is empty.</p>
+<a class="button-link" href="{{ url_for('checkout') }}" data-testid="checkout-link">Checkout</a>
+{% endif %}
+{% endblock %}

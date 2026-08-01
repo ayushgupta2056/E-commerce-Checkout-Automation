@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Payment</h1>
+<p>Order total: <strong data-testid="payment-total">${{ "%.2f"|format(order.final_total) }}</strong></p>
+<form method="post" class="form-panel" data-testid="payment-form">
+    <label for="cardholder_name">Cardholder name</label>
+    <input id="cardholder_name" name="cardholder_name" data-testid="cardholder-input">
+    <label for="card_number">Card number</label>
+    <input id="card_number" name="card_number" data-testid="card-number-input">
+    <label for="expiration_date">Expiration date</label>
+    <input id="expiration_date" name="expiration_date" placeholder="MM/YY" data-testid="expiration-input">
+    <label for="cvv">CVV</label>
+    <input id="cvv" name="cvv" data-testid="cvv-input">
+    <button type="submit" data-testid="pay-button">Pay now</button>
+</form>
+{% endblock %}

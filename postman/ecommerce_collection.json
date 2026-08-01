@@ -1,0 +1,86 @@
+{
+  "info": {
+    "name": "E-Commerce Checkout Automation APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:5000" }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login - Success",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/login",
+            "body": { "mode": "raw", "raw": "{\"email\":\"{{email}}\",\"password\":\"{{password}}\"}" }
+          },
+          "event": [{
+            "listen": "test",
+            "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "const json = pm.response.json();", "pm.expect(json).to.have.property('user_id');", "pm.environment.set('userId', json.user_id);"] }
+          }]
+        },
+        {
+          "name": "Login - Invalid",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{baseUrl}}/api/login",
+            "body": { "mode": "raw", "raw": "{\"email\":\"invalid@example.com\",\"password\":\"WrongPassword\"}" }
+          },
+          "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 401', () => pm.response.to.have.status(401));"] } }]
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        { "name": "Get All Products", "request": { "method": "GET", "url": "{{baseUrl}}/api/products" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "pm.expect(pm.response.json().products.length).to.be.above(0);"] } }] },
+        { "name": "Search Products", "request": { "method": "GET", "url": "{{baseUrl}}/api/products?search=Mouse" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] },
+        { "name": "Get Product By ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/products/101" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "pm.expect(pm.response.json()).to.have.property('product_id', 101);"] } }] },
+        { "name": "Product Not Found", "request": { "method": "GET", "url": "{{baseUrl}}/api/products/99999" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 404', () => pm.response.to.have.status(404));"] } }] }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        { "name": "Add Product To Cart", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/cart/items", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}},\"product_id\":101,\"quantity\":2}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "pm.expect(pm.response.json().items[0]).to.have.property('quantity');"] } }] },
+        { "name": "Update Cart Quantity", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/cart/items/101", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}},\"quantity\":3}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] },
+        { "name": "View Cart", "request": { "method": "GET", "url": "{{baseUrl}}/api/cart?user_id={{userId}}" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "pm.expect(pm.response.json()).to.have.property('subtotal');"] } }] },
+        { "name": "Remove Cart Item", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/cart/items/101?user_id={{userId}}" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] }
+      ]
+    },
+    {
+      "name": "Discounts",
+      "item": [
+        { "name": "Apply SAVE10", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/cart/discount", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}},\"discount_code\":\"SAVE10\"}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] },
+        { "name": "Apply Invalid Discount", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/cart/discount", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}},\"discount_code\":\"BADCODE\"}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 400', () => pm.response.to.have.status(400));"] } }] }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        { "name": "Create Order", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/orders", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}}}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 201', () => pm.response.to.have.status(201));", "const json = pm.response.json();", "pm.environment.set('orderId', json.order_id);"] } }] },
+        { "name": "Get Order Details", "request": { "method": "GET", "url": "{{baseUrl}}/api/orders/{{orderId}}" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] },
+        { "name": "Order Not Found", "request": { "method": "GET", "url": "{{baseUrl}}/api/orders/99999" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 404', () => pm.response.to.have.status(404));"] } }] }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        { "name": "Successful Payment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/payments", "body": { "mode": "raw", "raw": "{\"order_id\":{{orderId}},\"cardholder_name\":\"Test User\",\"card_number\":\"4111111111111111\",\"expiration_date\":\"12/30\",\"cvv\":\"123\"}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));", "pm.expect(pm.response.json().payment_status).to.eql('SUCCESS');"] } }] },
+        { "name": "Declined Payment", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/payments", "body": { "mode": "raw", "raw": "{\"order_id\":{{orderId}},\"cardholder_name\":\"Test User\",\"card_number\":\"4000000000000002\",\"expiration_date\":\"12/30\",\"cvv\":\"123\"}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"] } }] }
+      ]
+    },
+    {
+      "name": "Negative Tests",
+      "item": [
+        { "name": "Controlled Failed API Response", "request": { "method": "GET", "url": "{{baseUrl}}/api/simulate-error" }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 500', () => pm.response.to.have.status(500));"] } }] },
+        { "name": "Out Of Stock Add", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/cart/items", "body": { "mode": "raw", "raw": "{\"user_id\":{{userId}},\"product_id\":105,\"quantity\":1}" } }, "event": [{ "listen": "test", "script": { "exec": ["pm.test('status 409', () => pm.response.to.have.status(409));"] } }] }
+      ]
+    }
+  ]
+}

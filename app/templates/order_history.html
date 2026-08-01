@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Order History</h1>
+{% if orders %}
+<table data-testid="order-history-table">
+    <thead>
+        <tr><th>Order ID</th><th>Status</th><th>Total</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr data-testid="history-order-{{ order.order_id }}">
+            <td>{{ order.order_id }}</td>
+            <td>{{ order.order_status }}</td>
+            <td>${{ "%.2f"|format(order.final_total) }}</td>
+            <td>{{ order.created_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p data-testid="no-orders-message">No orders found.</p>
+{% endif %}
+{% endblock %}

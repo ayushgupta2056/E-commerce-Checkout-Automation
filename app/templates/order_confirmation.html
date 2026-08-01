@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section data-testid="order-confirmation">
+    <h1>Order Confirmed</h1>
+    <p>Order ID: <strong data-testid="order-id">{{ order.order_id }}</strong></p>
+    <p>Status: <strong data-testid="order-status">{{ order.order_status }}</strong></p>
+    <p>Final Total: <strong data-testid="order-final-total">${{ "%.2f"|format(order.final_total) }}</strong></p>
+    <a href="{{ url_for('order_history') }}" data-testid="order-history-link">View order history</a>
+</section>
+{% endblock %}

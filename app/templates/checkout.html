@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Checkout</h1>
+<form method="post" class="form-panel" data-testid="checkout-form">
+    <label for="full_name">Full name</label>
+    <input id="full_name" name="full_name" data-testid="full-name-input">
+    <label for="address">Address</label>
+    <input id="address" name="address" data-testid="address-input">
+    <label for="city">City</label>
+    <input id="city" name="city" data-testid="city-input">
+    <label for="zip_code">ZIP code</label>
+    <input id="zip_code" name="zip_code" data-testid="zip-input">
+    <button type="submit" data-testid="continue-payment-button">Continue to payment</button>
+</form>
+<section class="totals">
+    <p>Total due: <strong data-testid="checkout-total">${{ "%.2f"|format(cart.final_total) }}</strong></p>
+</section>
+{% endblock %}

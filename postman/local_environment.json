@@ -1,0 +1,33 @@
+{
+  "id": "local-ecommerce-checkout-env",
+  "name": "E-Commerce Checkout Local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000",
+      "enabled": true
+    },
+    {
+      "key": "email",
+      "value": "testuser@example.com",
+      "enabled": true
+    },
+    {
+      "key": "password",
+      "value": "Test@123",
+      "enabled": true
+    },
+    {
+      "key": "userId",
+      "value": "1",
+      "enabled": true
+    },
+    {
+      "key": "orderId",
+      "value": "",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_using": "Postman"
+}

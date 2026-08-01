@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or "QA Shop" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="{{ url_for('products') }}">QA Shop</a>
+        <nav>
+            <a href="{{ url_for('products') }}">Products</a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+            <a href="{{ url_for('order_history') }}">Order History</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+    </header>
+    <main class="container">
+        {% if error %}<div class="alert error" data-testid="error-message">{{ error }}</div>{% endif %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
