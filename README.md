@@ -1,7 +1,5 @@
 # E-Commerce Checkout Automation Framework
 
-A complete beginner-to-intermediate QA automation portfolio project that tests a local e-commerce checkout workflow across the UI, REST API, and SQLite database.
-
 ## Technologies Used
 
 - Python 3.11+
