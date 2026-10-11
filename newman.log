@@ -4,7 +4,7 @@ E-Commerce Checkout Automation APIs
 
 ❏ Authentication
 ↳ Login - Success
-  POST http://127.0.0.1:5000/api/login [200 OK, 188B, 32ms]
+  POST http://127.0.0.1:5000/api/login [200 OK, 188B, 30ms]
   ✓  status 200
 
 ↳ Login - Invalid
@@ -17,7 +17,7 @@ E-Commerce Checkout Automation APIs
   ✓  status 200
 
 ↳ Search Products
-  GET http://127.0.0.1:5000/api/products?search=Mouse [200 OK, 302B, 3ms]
+  GET http://127.0.0.1:5000/api/products?search=Mouse [200 OK, 302B, 2ms]
   ✓  status 200
 
 ↳ Get Product By ID
@@ -25,20 +25,20 @@ E-Commerce Checkout Automation APIs
   ✓  status 200
 
 ↳ Product Not Found
-  GET http://127.0.0.1:5000/api/products/99999 [404 Not Found, 162B, 3ms]
+  GET http://127.0.0.1:5000/api/products/99999 [404 Not Found, 162B, 2ms]
   ✓  status 404
 
 ❏ Cart
 ↳ Add Product To Cart
-  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 4ms]
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 5ms]
   ✓  status 200
 
 ↳ Update Cart Quantity
-  PUT http://127.0.0.1:5000/api/cart/items/101 [200 OK, 378B, 5ms]
+  PUT http://127.0.0.1:5000/api/cart/items/101 [200 OK, 378B, 4ms]
   ✓  status 200
 
 ↳ View Cart
-  GET http://127.0.0.1:5000/api/cart?user_id=1 [200 OK, 378B, 4ms]
+  GET http://127.0.0.1:5000/api/cart?user_id=1 [200 OK, 378B, 3ms]
   ✓  status 200
 
 ↳ Remove Cart Item
@@ -52,11 +52,11 @@ E-Commerce Checkout Automation APIs
 
 ❏ Discounts
 ↳ Apply SAVE10
-  POST http://127.0.0.1:5000/api/cart/discount [200 OK, 386B, 3ms]
+  POST http://127.0.0.1:5000/api/cart/discount [200 OK, 386B, 4ms]
   ✓  status 200
 
 ↳ Apply Invalid Discount
-  POST http://127.0.0.1:5000/api/cart/discount [400 Bad Request, 168B, 3ms]
+  POST http://127.0.0.1:5000/api/cart/discount [400 Bad Request, 168B, 2ms]
   ✓  status 400
 
 ❏ Orders
@@ -70,12 +70,12 @@ E-Commerce Checkout Automation APIs
   ✓  status 200
 
 ↳ Order Not Found
-  GET http://127.0.0.1:5000/api/orders/99999 [404 Not Found, 160B, 3ms]
+  GET http://127.0.0.1:5000/api/orders/99999 [404 Not Found, 160B, 2ms]
   ✓  status 404
 
 ❏ Payments
 ↳ Successful Payment
-  POST http://127.0.0.1:5000/api/payments [200 OK, 608B, 4ms]
+  POST http://127.0.0.1:5000/api/payments [200 OK, 608B, 5ms]
   ✓  status 200
   ✓  only last four digits returned
 
@@ -84,11 +84,11 @@ E-Commerce Checkout Automation APIs
   ✓  status 200
 
 ↳ Create Order For Declined Payment
-  POST http://127.0.0.1:5000/api/orders [201 Created, 426B, 4ms]
+  POST http://127.0.0.1:5000/api/orders [201 Created, 426B, 3ms]
   ✓  status 201
 
 ↳ Declined Payment
-  POST http://127.0.0.1:5000/api/payments [200 OK, 617B, 4ms]
+  POST http://127.0.0.1:5000/api/payments [200 OK, 617B, 3ms]
   ✓  status 200
   ✓  payment declined
 
@@ -114,9 +114,9 @@ E-Commerce Checkout Automation APIs
 ├─────────────────────────┼─────────────────┼─────────────────┤
 │              assertions │              26 │               0 │
 ├─────────────────────────┴─────────────────┴─────────────────┤
-│ total run duration: 418ms                                   │
+│ total run duration: 403ms                                   │
 ├─────────────────────────────────────────────────────────────┤
 │ total data received: 4.97kB (approx)                        │
 ├─────────────────────────────────────────────────────────────┤
-│ average response time: 4ms [min: 2ms, max: 32ms, s.d.: 6ms] │
+│ average response time: 4ms [min: 2ms, max: 30ms, s.d.: 5ms] │
 └─────────────────────────────────────────────────────────────┘
