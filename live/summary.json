@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "generated_at": "2026-10-11 12:46:21 UTC",
+    "source": "GitHub Actions",
+    "repository": "ayushgupta2056/E-commerce-Checkout-Automation",
+    "run_id": "38140467984",
+    "run_number": "2",
+    "run_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38140467984",
+    "workflow_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/workflows/qa-tests.yml",
+    "event": "workflow_dispatch",
+    "branch": "interview-demo",
+    "sha": "0dfc531d955e96ea853f16ec5b9c3c98cd98e06f",
+    "source_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/blob/0dfc531d955e96ea853f16ec5b9c3c98cd98e06f",
+    "target": "https://qa-shop-checkout-demo.onrender.com",
+    "runner": "Linux"
+  },
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "error": 0,
+    "skipped": 2,
+    "xfailed": 5,
+    "total": 16,
+    "duration": 34.2,
+    "categories": {
+      "API": {
+        "total": 8,
+        "passed": 3,
+        "xfailed": 5
+      },
+      "Integration": {
+        "total": 2,
+        "passed": 0,
+        "xfailed": 0
+      },
+      "UI": {
+        "total": 6,
+        "passed": 6,
+        "xfailed": 0
+      }
+    },
+    "negative": 11
+  },
+  "tests": [
+    {
+      "name": "test_login_products_and_product_errors",
+      "base_name": "test_login_products_and_product_errors",
+      "file": "tests/api/test_api_checkout.py",
+      "line": 8,
+      "category": "API",
+      "negative": true,
+      "status": "passed",
+      "duration": 1.727,
+      "detail": "",
+      "evidence": []
+    },
+    {
+      "name": "test_cart_discount_order_and_successful_payment",
+      "base_name": "test_cart_discount_order_and_successful_payment",
+      "file": "tests/api/test_api_checkout.py",
+      "line": 34,
+      "category": "API",
+      "negative": false,
+      "status": "passed",
+      "duration": 1.178,
+      "detail": "",
+      "evidence": []
+    },
+    {
+      "name": "test_cart_negative_paths_declined_payment_and_failed_response",
+      "base_name": "test_cart_negative_paths_declined_payment_and_failed_response",
+      "file": "tests/api/test_api_checkout.py",
+      "line": 65,
+      "category": "API",
+      "negative": true,
+      "status": "passed",
+      "duration": 1.793,
+      "detail": "",
+      "evidence": []
+    },
+    {
+      "name": "test_paid_order_cannot_be_paid_twice",
+      "base_name": "test_paid_order_cannot_be_paid_twice",
+      "file": "tests/api/test_api_known_defects.py",
+      "line": 15,
+      "category": "API",
+      "negative": true,
+      "status": "xfailed",
+      "duration": 1.326,
+      "detail": "DEFECT-004: an already paid order can be paid again",
+      "evidence": []
+    },
+    {
+      "name": "test_invalid_or_expired_card_is_rejected[13/30]",
+      "base_name": "test_invalid_or_expired_card_is_rejected",
+      "file": "tests/api/test_api_known_defects.py",
+      "line": 31,
+      "category": "API",
+      "negative": true,
+      "status": "xfailed",
+      "duration": 0.654,
+      "detail": "DEFECT-005: expiration date month and expiry are not validated",
+      "evidence": []
+    },
+    {
+      "name": "test_invalid_or_expired_card_is_rejected[ab/cd]",
+      "base_name": "test_invalid_or_expired_card_is_rejected",
+      "file": "tests/api/test_api_known_defects.py",
+      "line": 31,
+      "category": "API",
+      "negative": true,
+      "status": "xfailed",
+      "duration": 0.777,
+      "detail": "DEFECT-005: expiration date month and expiry are not validated",
+      "evidence": []
+    },
+    {
+      "name": "test_invalid_or_expired_card_is_rejected[01/20]",
+      "base_name": "test_invalid_or_expired_card_is_rejected",
+      "file": "tests/api/test_api_known_defects.py",
+      "line": 31,
+      "category": "API",
+      "negative": true,
+      "status": "xfailed",
+      "duration": 0.675,
+      "detail": "DEFECT-005: expiration date month and expiry are not validated",
+      "evidence": []
+    },
+    {
+      "name": "test_non_numeric_product_id_returns_client_error",
+      "base_name": "test_non_numeric_product_id_returns_client_error",
+      "file": "tests/api/test_api_known_defects.py",
+      "line": 42,
+      "category": "API",
+      "negative": true,
+      "status": "xfailed",
+      "duration": 0.456,
+      "detail": "DEFECT-006: non-numeric product_id returns HTTP 500",
+      "evidence": []
+    },
+    {
+      "name": "test_cart_totals_match_ui_api_and_database[chromium]",
+      "base_name": "test_cart_totals_match_ui_api_and_database",
+      "file": "tests/integration/test_cross_layer_validation.py",
+      "line": 13,
+      "category": "Integration",
+      "negative": false,
+      "status": "skipped",
+      "duration": 2.738,
+      "detail": "Database validation needs direct SQLite access; run against the local app.",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-cart-totals-match-ui-api-and-database-chromium/test-failed-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-cart-totals-match-ui-api-and-database-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-cart-totals-match-ui-api-and-database-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_order_and_payment_match_ui_api_and_database[chromium]",
+      "base_name": "test_order_and_payment_match_ui_api_and_database",
+      "file": "tests/integration/test_cross_layer_validation.py",
+      "line": 55,
+      "category": "Integration",
+      "negative": false,
+      "status": "skipped",
+      "duration": 0.925,
+      "detail": "Database validation needs direct SQLite access; run against the local app.",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-order-and-payment-match-ui-api-and-database-chromium/test-failed-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-order-and-payment-match-ui-api-and-database-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-integration-test-cross-layer-validation-py-test-order-and-payment-match-ui-api-and-database-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_complete_checkout_with_discount_and_order_history[chromium]",
+      "base_name": "test_complete_checkout_with_discount_and_order_history",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 16,
+      "category": "UI",
+      "negative": false,
+      "status": "passed",
+      "duration": 3.145,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-complete-checkout-with-discount-and-order-history-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-complete-checkout-with-discount-and-order-history-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-complete-checkout-with-discount-and-order-history-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_cart_update_and_remove_item[chromium]",
+      "base_name": "test_cart_update_and_remove_item",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 63,
+      "category": "UI",
+      "negative": false,
+      "status": "passed",
+      "duration": 1.666,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-cart-update-and-remove-item-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-cart-update-and-remove-item-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-cart-update-and-remove-item-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_invalid_login_and_empty_login_show_errors[chromium]",
+      "base_name": "test_invalid_login_and_empty_login_show_errors",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 78,
+      "category": "UI",
+      "negative": true,
+      "status": "passed",
+      "duration": 0.854,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-invalid-login-and-empty-login-show-errors-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-invalid-login-and-empty-login-show-errors-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-invalid-login-and-empty-login-show-errors-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_product_search_no_results[chromium]",
+      "base_name": "test_product_search_no_results",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 89,
+      "category": "UI",
+      "negative": true,
+      "status": "passed",
+      "duration": 1.131,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-product-search-no-results-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-product-search-no-results-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-product-search-no-results-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_out_of_stock_and_over_stock_are_blocked[chromium]",
+      "base_name": "test_out_of_stock_and_over_stock_are_blocked",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 97,
+      "category": "UI",
+      "negative": true,
+      "status": "passed",
+      "duration": 11.754,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-out-of-stock-and-over-stock-are-blocked-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-out-of-stock-and-over-stock-are-blocked-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-out-of-stock-and-over-stock-are-blocked-chromium/video.webm"
+        }
+      ]
+    },
+    {
+      "name": "test_empty_cart_checkout_invalid_discount_checkout_and_payment_errors[chromium]",
+      "base_name": "test_empty_cart_checkout_invalid_discount_checkout_and_payment_errors",
+      "file": "tests/ui/test_checkout_ui.py",
+      "line": 112,
+      "category": "UI",
+      "negative": true,
+      "status": "passed",
+      "duration": 3.408,
+      "detail": "",
+      "evidence": [
+        {
+          "kind": "screenshot",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-empty-cart-checkout-invalid-discount-checkout-and-payment-errors-chromium/test-finished-1.png"
+        },
+        {
+          "kind": "trace",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-empty-cart-checkout-invalid-discount-checkout-and-payment-errors-chromium/trace.zip"
+        },
+        {
+          "kind": "video",
+          "path": "evidence/tests-ui-test-checkout-ui-py-test-empty-cart-checkout-invalid-discount-checkout-and-payment-errors-chromium/video.webm"
+        }
+      ]
+    }
+  ]
+}
