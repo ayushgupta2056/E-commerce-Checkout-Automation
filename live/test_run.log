@@ -1,96 +1,96 @@
-2026-10-11 12:55:43,800 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:43,906 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:43,907 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:43,957 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:43,957 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:44,035 [INFO] utilities.api_client - Response status: 401
-2026-10-11 12:55:44,035 [INFO] utilities.api_client - GET /api/products
-2026-10-11 12:55:44,106 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,106 [INFO] utilities.api_client - GET /api/products
-2026-10-11 12:55:44,156 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,157 [INFO] utilities.api_client - GET /api/products/102
-2026-10-11 12:55:44,224 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,224 [INFO] utilities.api_client - GET /api/products/99999
-2026-10-11 12:55:44,305 [INFO] utilities.api_client - Response status: 404
-2026-10-11 12:55:44,477 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:44,553 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,554 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:44,709 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,709 [INFO] utilities.api_client - PUT /api/cart/items/101
-2026-10-11 12:55:44,765 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,765 [INFO] utilities.api_client - POST /api/cart/discount
-2026-10-11 12:55:44,840 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:44,840 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:44,958 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:44,958 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:45,043 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,043 [INFO] utilities.api_client - GET /api/orders/1
-2026-10-11 12:55:45,119 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,280 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:45,358 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,359 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:45,424 [INFO] utilities.api_client - Response status: 409
-2026-10-11 12:55:45,424 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:45,483 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,483 [INFO] utilities.api_client - PUT /api/cart/items/104
-2026-10-11 12:55:45,542 [INFO] utilities.api_client - Response status: 409
-2026-10-11 12:55:45,542 [INFO] utilities.api_client - POST /api/cart/discount
-2026-10-11 12:55:45,654 [INFO] utilities.api_client - Response status: 400
-2026-10-11 12:55:45,654 [INFO] utilities.api_client - DELETE /api/cart/items/104
-2026-10-11 12:55:45,757 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,758 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:45,811 [INFO] utilities.api_client - Response status: 400
-2026-10-11 12:55:45,812 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:45,870 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:45,870 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:45,928 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:45,929 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:46,013 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,013 [INFO] utilities.api_client - GET /api/orders/99999
-2026-10-11 12:55:46,079 [INFO] utilities.api_client - Response status: 404
-2026-10-11 12:55:46,079 [INFO] utilities.api_client - GET /api/simulate-error
-2026-10-11 12:55:46,147 [INFO] utilities.api_client - Response status: 500
-2026-10-11 12:55:46,284 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:46,354 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,355 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:46,431 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,431 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:46,489 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:46,489 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:46,568 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,568 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:46,639 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,639 [INFO] utilities.api_client - GET /api/products/104
-2026-10-11 12:55:46,690 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,874 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:46,931 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,932 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:46,989 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:46,990 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:47,102 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:47,103 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:47,210 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:47,456 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:47,529 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:47,530 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:47,592 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:47,592 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:47,801 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:47,802 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:47,861 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:48,005 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:48,069 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:48,070 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:48,127 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:48,127 [INFO] utilities.api_client - POST /api/orders
-2026-10-11 12:55:48,191 [INFO] utilities.api_client - Response status: 201
-2026-10-11 12:55:48,191 [INFO] utilities.api_client - POST /api/payments
-2026-10-11 12:55:48,259 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:48,427 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:48,482 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:48,483 [INFO] utilities.api_client - POST /api/cart/items
-2026-10-11 12:55:48,559 [INFO] utilities.api_client - Response status: 500
-2026-10-11 12:55:50,760 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:50,810 [INFO] utilities.api_client - Response status: 200
-2026-10-11 12:55:51,468 [INFO] utilities.api_client - POST /api/login
-2026-10-11 12:55:51,518 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:55,409 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:55,544 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:55,545 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:55,668 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:55,669 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:55,768 [INFO] utilities.api_client - Response status: 401
+2026-10-11 13:15:55,769 [INFO] utilities.api_client - GET /api/products
+2026-10-11 13:15:56,074 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:56,074 [INFO] utilities.api_client - GET /api/products
+2026-10-11 13:15:56,199 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:56,200 [INFO] utilities.api_client - GET /api/products/102
+2026-10-11 13:15:56,335 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:56,335 [INFO] utilities.api_client - GET /api/products/99999
+2026-10-11 13:15:56,456 [INFO] utilities.api_client - Response status: 404
+2026-10-11 13:15:56,687 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:56,820 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:56,821 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:15:56,955 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:56,955 [INFO] utilities.api_client - PUT /api/cart/items/101
+2026-10-11 13:15:57,066 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:57,066 [INFO] utilities.api_client - POST /api/cart/discount
+2026-10-11 13:15:57,182 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:57,182 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:15:57,322 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:15:57,322 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:15:57,460 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:57,461 [INFO] utilities.api_client - GET /api/orders/1
+2026-10-11 13:15:57,588 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:57,819 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:57,944 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:57,945 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:15:58,062 [INFO] utilities.api_client - Response status: 409
+2026-10-11 13:15:58,062 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:15:58,175 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:58,175 [INFO] utilities.api_client - PUT /api/cart/items/104
+2026-10-11 13:15:58,312 [INFO] utilities.api_client - Response status: 409
+2026-10-11 13:15:58,312 [INFO] utilities.api_client - POST /api/cart/discount
+2026-10-11 13:15:58,442 [INFO] utilities.api_client - Response status: 400
+2026-10-11 13:15:58,443 [INFO] utilities.api_client - DELETE /api/cart/items/104
+2026-10-11 13:15:58,595 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:58,595 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:15:58,697 [INFO] utilities.api_client - Response status: 400
+2026-10-11 13:15:58,697 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:15:58,813 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:58,813 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:15:58,980 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:15:58,980 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:15:59,119 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:59,120 [INFO] utilities.api_client - GET /api/orders/99999
+2026-10-11 13:15:59,220 [INFO] utilities.api_client - Response status: 404
+2026-10-11 13:15:59,220 [INFO] utilities.api_client - GET /api/simulate-error
+2026-10-11 13:15:59,355 [INFO] utilities.api_client - Response status: 500
+2026-10-11 13:15:59,585 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:15:59,738 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:59,739 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:15:59,873 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:15:59,873 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:16:00,021 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:16:00,022 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:16:00,165 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:00,165 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:16:00,300 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:00,301 [INFO] utilities.api_client - GET /api/products/104
+2026-10-11 13:16:00,444 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:00,691 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:00,801 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:00,802 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:16:00,946 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:00,946 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:16:01,063 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:16:01,063 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:16:01,184 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:01,398 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:01,510 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:01,511 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:16:01,622 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:01,622 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:16:01,779 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:16:01,779 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:16:01,882 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:02,113 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:02,235 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:02,236 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:16:02,384 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:02,384 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 13:16:02,505 [INFO] utilities.api_client - Response status: 201
+2026-10-11 13:16:02,505 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 13:16:02,647 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:02,863 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:02,997 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:02,998 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 13:16:03,124 [INFO] utilities.api_client - Response status: 500
+2026-10-11 13:16:04,176 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:04,277 [INFO] utilities.api_client - Response status: 200
+2026-10-11 13:16:05,062 [INFO] utilities.api_client - POST /api/login
+2026-10-11 13:16:05,203 [INFO] utilities.api_client - Response status: 200

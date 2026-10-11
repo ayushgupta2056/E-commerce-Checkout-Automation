@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-10-11 12:56:23 UTC",
+    "generated_at": "2026-10-11 13:16:39 UTC",
     "source": "GitHub Actions",
     "repository": "ayushgupta2056/E-commerce-Checkout-Automation",
-    "run_id": "38141094516",
-    "run_number": "5",
-    "run_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38141094516",
+    "run_id": "38142442284",
+    "run_number": "8",
+    "run_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38142442284",
     "workflow_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/workflows/qa-tests.yml",
     "event": "workflow_dispatch",
     "branch": "interview-demo",
-    "sha": "460fe0173b9f0c848f3c44b09fad68ded5b236ad",
-    "source_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/blob/460fe0173b9f0c848f3c44b09fad68ded5b236ad",
+    "sha": "b6e353b896a81050a74e477670a973c24fa66e0e",
+    "source_url": "https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/blob/b6e353b896a81050a74e477670a973c24fa66e0e",
     "target": "https://qa-shop-checkout-demo.onrender.com",
     "runner": "Linux"
   },
@@ -21,7 +21,7 @@
     "skipped": 2,
     "xfailed": 5,
     "total": 16,
-    "duration": 27.1,
+    "duration": 32.3,
     "categories": {
       "API": {
         "total": 8,
@@ -50,7 +50,7 @@
       "category": "API",
       "negative": true,
       "status": "passed",
-      "duration": 0.758,
+      "duration": 1.38,
       "detail": "",
       "evidence": []
     },
@@ -62,7 +62,7 @@
       "category": "API",
       "negative": false,
       "status": "passed",
-      "duration": 0.807,
+      "duration": 1.128,
       "detail": "",
       "evidence": []
     },
@@ -74,7 +74,7 @@
       "category": "API",
       "negative": true,
       "status": "passed",
-      "duration": 1.027,
+      "duration": 1.766,
       "detail": "",
       "evidence": []
     },
@@ -86,7 +86,7 @@
       "category": "API",
       "negative": true,
       "status": "xfailed",
-      "duration": 0.541,
+      "duration": 1.088,
       "detail": "DEFECT-004: an already paid order can be paid again",
       "evidence": []
     },
@@ -98,7 +98,7 @@
       "category": "API",
       "negative": true,
       "status": "xfailed",
-      "duration": 0.486,
+      "duration": 0.723,
       "detail": "DEFECT-005: expiration date month and expiry are not validated",
       "evidence": []
     },
@@ -110,7 +110,7 @@
       "category": "API",
       "negative": true,
       "status": "xfailed",
-      "duration": 0.647,
+      "duration": 0.696,
       "detail": "DEFECT-005: expiration date month and expiry are not validated",
       "evidence": []
     },
@@ -122,7 +122,7 @@
       "category": "API",
       "negative": true,
       "status": "xfailed",
-      "duration": 0.395,
+      "duration": 0.762,
       "detail": "DEFECT-005: expiration date month and expiry are not validated",
       "evidence": []
     },
@@ -134,7 +134,7 @@
       "category": "API",
       "negative": true,
       "status": "xfailed",
-      "duration": 0.296,
+      "duration": 0.476,
       "detail": "DEFECT-006: non-numeric product_id returns HTTP 500",
       "evidence": []
     },
@@ -146,7 +146,7 @@
       "category": "Integration",
       "negative": false,
       "status": "skipped",
-      "duration": 2.43,
+      "duration": 1.32,
       "detail": "Database validation needs direct SQLite access; run against the local app.",
       "evidence": [
         {
@@ -171,7 +171,7 @@
       "category": "Integration",
       "negative": false,
       "status": "skipped",
-      "duration": 0.717,
+      "duration": 0.885,
       "detail": "Database validation needs direct SQLite access; run against the local app.",
       "evidence": [
         {
@@ -196,7 +196,7 @@
       "category": "UI",
       "negative": false,
       "status": "passed",
-      "duration": 2.321,
+      "duration": 3.154,
       "detail": "",
       "evidence": [
         {
@@ -221,7 +221,7 @@
       "category": "UI",
       "negative": false,
       "status": "passed",
-      "duration": 1.168,
+      "duration": 1.539,
       "detail": "",
       "evidence": [
         {
@@ -246,7 +246,7 @@
       "category": "UI",
       "negative": true,
       "status": "passed",
-      "duration": 0.995,
+      "duration": 0.801,
       "detail": "",
       "evidence": [
         {
@@ -271,7 +271,7 @@
       "category": "UI",
       "negative": true,
       "status": "passed",
-      "duration": 0.875,
+      "duration": 1.127,
       "detail": "",
       "evidence": [
         {
@@ -296,7 +296,7 @@
       "category": "UI",
       "negative": true,
       "status": "passed",
-      "duration": 11.37,
+      "duration": 11.553,
       "detail": "",
       "evidence": [
         {
@@ -321,7 +321,7 @@
       "category": "UI",
       "negative": true,
       "status": "passed",
-      "duration": 2.316,
+      "duration": 3.91,
       "detail": "",
       "evidence": [
         {
