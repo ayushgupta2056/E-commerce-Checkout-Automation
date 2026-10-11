@@ -18,3 +18,5 @@ venv/
 .vscode/
 database/*.db
 !database/.gitkeep
+site/
+test-results/
