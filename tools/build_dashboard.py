@@ -153,7 +153,7 @@ def newman_summary() -> dict | None:
     root = ET.parse(path).getroot()
     cases = list(root.iter("testcase"))
     failed = sum(1 for case in cases if case.find("failure") is not None or case.find("error") is not None)
-    return {"requests": len(cases), "failed": failed}
+    return {"assertions": len(cases), "failed": failed}
 
 
 def summarise(tests: list[dict]) -> dict:
@@ -232,7 +232,7 @@ def render(meta: dict, junit_meta: dict, tests: list[dict], summary: dict, histo
     if postman:
         postman_html = (
             f'<div class="banner {"failed" if postman["failed"] else "passed"}">Postman collection (Newman): '
-            f'{postman["requests"] - postman["failed"]}/{postman["requests"]} requests passed all assertions — '
+            f'{postman["assertions"] - postman["failed"]}/{postman["assertions"]} assertions passed — '
             '<a href="newman.xml">Newman JUnit</a> · <a href="newman.log">Newman log</a></div>'
         )
 
