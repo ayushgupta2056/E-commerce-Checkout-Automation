@@ -11,7 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from config import DATABASE_PATH, SECRET_KEY
+from config import DATABASE_PATH, DEMO_MODE, SECRET_KEY
 from services.pricing import VALID_DISCOUNT_CODE, calculate_totals, money
 
 
@@ -21,6 +21,18 @@ app = FastAPI(title="QA Shop")
 app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
+templates.env.globals["demo_mode"] = DEMO_MODE
+
+
+def reset_demo_database() -> None:
+    sys.path.append(str(Path(__file__).resolve().parents[1] / "database"))
+    from reset_database import reset_database
+
+    reset_database()
+
+
+if not Path(DATABASE_PATH).exists():
+    reset_demo_database()
 
 
 def get_db() -> sqlite3.Connection:
@@ -611,18 +623,21 @@ async def api_simulate_error():
     return json_response({"error": "Controlled failure for negative API testing."}, 500)
 
 
+@app.post("/demo/reset")
+async def demo_reset(request: Request):
+    if not DEMO_MODE:
+        return json_response({"error": "Not found."}, 404)
+    reset_demo_database()
+    request.session.clear()
+    return redirect_to(request, "login")
+
+
 @app.exception_handler(Exception)
 async def server_error(request: Request, exc: Exception):
     return json_response({"error": "Internal server error."}, 500)
 
 
 if __name__ == "__main__":
-    if not Path(DATABASE_PATH).exists():
-        sys.path.append(str(Path(__file__).resolve().parents[1] / "database"))
-        from reset_database import reset_database
-
-        reset_database()
-
     import uvicorn
 
     uvicorn.run(app, host="127.0.0.1", port=5000, log_level="info")

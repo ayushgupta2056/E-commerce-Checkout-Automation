@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
 </head>
 <body>
+{% if demo_mode %}
+<div class="demo-banner" data-testid="demo-banner">
+    <span><strong>Public QA demo.</strong> Sample data and simulated payments only. Data resets when the server restarts.</span>
+    <form method="post" action="/demo/reset"><button type="submit" data-testid="demo-reset-button">Reset demo data</button></form>
+</div>
+{% endif %}
     <header class="topbar">
         <a class="brand" href="{{ url_for('products') }}">QA Shop</a>
         <nav>

@@ -161,3 +161,31 @@ td {
     margin-top: 18px;
     max-width: 420px;
 }
+
+.demo-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: #fff4ce;
+    border-bottom: 1px solid #e6d28a;
+    font-size: 14px;
+}
+
+.demo-banner form {
+    margin: 0;
+}
+
+.demo-hint {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f3f6fa;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.demo-hint p {
+    margin: 2px 0;
+}
