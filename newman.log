@@ -4,119 +4,119 @@ E-Commerce Checkout Automation APIs
 
 ❏ Authentication
 ↳ Login - Success
-  POST http://127.0.0.1:5000/api/login [200 OK, 188B, 244ms]
+  POST http://127.0.0.1:5000/api/login [200 OK, 188B, 32ms]
   ✓  status 200
 
 ↳ Login - Invalid
-  POST http://127.0.0.1:5000/api/login [401 Unauthorized, 173B, 2ms]
+  POST http://127.0.0.1:5000/api/login [401 Unauthorized, 173B, 3ms]
   ✓  status 401
 
 ❏ Products
 ↳ Get All Products
-  GET http://127.0.0.1:5000/api/products [200 OK, 971B, 1ms]
+  GET http://127.0.0.1:5000/api/products [200 OK, 971B, 3ms]
   ✓  status 200
 
 ↳ Search Products
-  GET http://127.0.0.1:5000/api/products?search=Mouse [200 OK, 302B, 2ms]
+  GET http://127.0.0.1:5000/api/products?search=Mouse [200 OK, 302B, 3ms]
   ✓  status 200
 
 ↳ Get Product By ID
-  GET http://127.0.0.1:5000/api/products/101 [200 OK, 287B, 1ms]
+  GET http://127.0.0.1:5000/api/products/101 [200 OK, 287B, 2ms]
   ✓  status 200
 
 ↳ Product Not Found
-  GET http://127.0.0.1:5000/api/products/99999 [404 Not Found, 162B, 1ms]
+  GET http://127.0.0.1:5000/api/products/99999 [404 Not Found, 162B, 3ms]
   ✓  status 404
 
 ❏ Cart
 ↳ Add Product To Cart
-  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 234ms]
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 4ms]
   ✓  status 200
 
 ↳ Update Cart Quantity
-  PUT http://127.0.0.1:5000/api/cart/items/101 [200 OK, 378B, 240ms]
+  PUT http://127.0.0.1:5000/api/cart/items/101 [200 OK, 378B, 5ms]
   ✓  status 200
 
 ↳ View Cart
-  GET http://127.0.0.1:5000/api/cart?user_id=1 [200 OK, 378B, 2ms]
+  GET http://127.0.0.1:5000/api/cart?user_id=1 [200 OK, 378B, 4ms]
   ✓  status 200
 
 ↳ Remove Cart Item
-  DELETE http://127.0.0.1:5000/api/cart/items/101?user_id=1 [200 OK, 241B, 218ms]
+  DELETE http://127.0.0.1:5000/api/cart/items/101?user_id=1 [200 OK, 241B, 4ms]
   ✓  status 200
 
 ↳ Re-add Product Before Checkout
-  POST http://127.0.0.1:5000/api/cart/items [200 OK, 382B, 347ms]
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 382B, 4ms]
   ✓  status 200
   ✓  cart has the keyboard
 
 ❏ Discounts
 ↳ Apply SAVE10
-  POST http://127.0.0.1:5000/api/cart/discount [200 OK, 386B, 246ms]
+  POST http://127.0.0.1:5000/api/cart/discount [200 OK, 386B, 3ms]
   ✓  status 200
 
 ↳ Apply Invalid Discount
-  POST http://127.0.0.1:5000/api/cart/discount [400 Bad Request, 168B, 1ms]
+  POST http://127.0.0.1:5000/api/cart/discount [400 Bad Request, 168B, 3ms]
   ✓  status 400
 
 ❏ Orders
 ↳ Create Order
-  POST http://127.0.0.1:5000/api/orders [201 Created, 431B, 269ms]
+  POST http://127.0.0.1:5000/api/orders [201 Created, 431B, 4ms]
   ✓  status 201
   ✓  final total = subtotal + tax - discount
 
 ↳ Get Order Details
-  GET http://127.0.0.1:5000/api/orders/1 [200 OK, 426B, 1ms]
+  GET http://127.0.0.1:5000/api/orders/1 [200 OK, 426B, 2ms]
   ✓  status 200
 
 ↳ Order Not Found
-  GET http://127.0.0.1:5000/api/orders/99999 [404 Not Found, 160B, 1ms]
+  GET http://127.0.0.1:5000/api/orders/99999 [404 Not Found, 160B, 3ms]
   ✓  status 404
 
 ❏ Payments
 ↳ Successful Payment
-  POST http://127.0.0.1:5000/api/payments [200 OK, 608B, 198ms]
+  POST http://127.0.0.1:5000/api/payments [200 OK, 608B, 4ms]
   ✓  status 200
   ✓  only last four digits returned
 
 ↳ Add Item For Declined Payment
-  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 282ms]
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 5ms]
   ✓  status 200
 
 ↳ Create Order For Declined Payment
-  POST http://127.0.0.1:5000/api/orders [201 Created, 426B, 2ms]
+  POST http://127.0.0.1:5000/api/orders [201 Created, 426B, 4ms]
   ✓  status 201
 
 ↳ Declined Payment
-  POST http://127.0.0.1:5000/api/payments [200 OK, 617B, 2ms]
+  POST http://127.0.0.1:5000/api/payments [200 OK, 617B, 4ms]
   ✓  status 200
   ✓  payment declined
 
 ❏ Negative Tests
 ↳ Controlled Failed API Response
-  GET http://127.0.0.1:5000/api/simulate-error [500 Internal Server Error, 200B, 1ms]
+  GET http://127.0.0.1:5000/api/simulate-error [500 Internal Server Error, 200B, 2ms]
   ✓  status 500
 
 ↳ Out Of Stock Add
-  POST http://127.0.0.1:5000/api/cart/items [409 Conflict, 167B, 2ms]
+  POST http://127.0.0.1:5000/api/cart/items [409 Conflict, 167B, 3ms]
   ✓  status 409
 
-┌─────────────────────────┬────────────────────┬───────────────────┐
-│                         │           executed │            failed │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              iterations │                  1 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│                requests │                 22 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│            test-scripts │                 22 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│      prerequest-scripts │                  0 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              assertions │                 26 │                 0 │
-├─────────────────────────┴────────────────────┴───────────────────┤
-│ total run duration: 2.5s                                         │
-├──────────────────────────────────────────────────────────────────┤
-│ total data received: 4.97kB (approx)                             │
-├──────────────────────────────────────────────────────────────────┤
-│ average response time: 104ms [min: 1ms, max: 347ms, s.d.: 126ms] │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              22 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              22 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              26 │               0 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 418ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 4.97kB (approx)                        │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 4ms [min: 2ms, max: 32ms, s.d.: 6ms] │
+└─────────────────────────────────────────────────────────────┘
