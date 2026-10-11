@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="E-Commerce Checkout Automation APIs" tests="22" time="0.325">
-  <testsuite name="Authentication / Login - Success" id="72158548-c03d-4301-9027-fe2fb0abf066" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.080">
-    <testcase name="status 200" time="0.080" classname="AuthenticationLoginSuccess"/>
+<testsuites name="E-Commerce Checkout Automation APIs" tests="22" time="2.297">
+  <testsuite name="Authentication / Login - Success" id="fd8050e3-1641-4d92-a090-4499979fdf32" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.244">
+    <testcase name="status 200" time="0.244" classname="AuthenticationLoginSuccess"/>
   </testsuite>
-  <testsuite name="Authentication / Login - Invalid" id="9b6ceaef-76d6-49ca-80b0-c84b90215d3d" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.003">
-    <testcase name="status 401" time="0.003" classname="AuthenticationLoginInvalid"/>
+  <testsuite name="Authentication / Login - Invalid" id="29c785af-ae17-4b4e-9f42-4cf03bd651e2" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="status 401" time="0.002" classname="AuthenticationLoginInvalid"/>
   </testsuite>
-  <testsuite name="Products / Get All Products" id="ca7497a9-311e-471e-b445-b388480aed75" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 200" time="0.002" classname="ProductsGetAllProducts"/>
+  <testsuite name="Products / Get All Products" id="a411fd85-99cc-4cb6-90d8-4fe07591f9c9" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 200" time="0.001" classname="ProductsGetAllProducts"/>
   </testsuite>
-  <testsuite name="Products / Search Products" id="71ae5d19-4bf7-4b6a-942a-a7a582f127bf" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
+  <testsuite name="Products / Search Products" id="a9f1b49f-08bc-4702-8420-0380d6b5ae9e" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.002">
     <testcase name="status 200" time="0.002" classname="ProductsSearchProducts"/>
   </testsuite>
-  <testsuite name="Products / Get Product By ID" id="7d751a69-32b6-4d74-85b9-80ec9d4c80b4" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 200" time="0.002" classname="ProductsGetProductById"/>
+  <testsuite name="Products / Get Product By ID" id="c4e3c29f-56c2-4bb6-adcc-c6b1c9827ba1" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 200" time="0.001" classname="ProductsGetProductById"/>
   </testsuite>
-  <testsuite name="Products / Product Not Found" id="478ebe72-7fc9-4bef-8c66-26eb2be6cc70" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 404" time="0.002" classname="ProductsProductNotFound"/>
+  <testsuite name="Products / Product Not Found" id="5b39a272-8c30-4750-bec7-5100f8897c6f" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 404" time="0.001" classname="ProductsProductNotFound"/>
   </testsuite>
-  <testsuite name="Cart / Add Product To Cart" id="6237e5e7-84b7-477c-9a67-0f270dc8d9fa" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.004">
-    <testcase name="status 200" time="0.004" classname="CartAddProductToCart"/>
+  <testsuite name="Cart / Add Product To Cart" id="9bbe32d4-1755-4cb4-b672-f0181fbb68d1" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.234">
+    <testcase name="status 200" time="0.234" classname="CartAddProductToCart"/>
   </testsuite>
-  <testsuite name="Cart / Update Cart Quantity" id="7d6baa50-89ae-4f10-90c2-78ca12b7f58c" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.004">
-    <testcase name="status 200" time="0.004" classname="CartUpdateCartQuantity"/>
+  <testsuite name="Cart / Update Cart Quantity" id="c85d4cf4-ad36-4c1d-a26d-6e9494fdb70c" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.240">
+    <testcase name="status 200" time="0.240" classname="CartUpdateCartQuantity"/>
   </testsuite>
-  <testsuite name="Cart / View Cart" id="b3b127ec-4305-4b6f-8fbc-690ab143f159" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
+  <testsuite name="Cart / View Cart" id="2dc28907-0d37-45d6-bc02-6c031d1c3f3f" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.002">
     <testcase name="status 200" time="0.002" classname="CartViewCart"/>
   </testsuite>
-  <testsuite name="Cart / Remove Cart Item" id="401ff03f-e85b-4945-8d56-4acbec3d53ea" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.003">
-    <testcase name="status 200" time="0.003" classname="CartRemoveCartItem"/>
+  <testsuite name="Cart / Remove Cart Item" id="0e1b5563-3ba3-4984-acb9-3b0979c2e055" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.218">
+    <testcase name="status 200" time="0.218" classname="CartRemoveCartItem"/>
   </testsuite>
-  <testsuite name="Cart / Re-add Product Before Checkout" id="8a60fb93-97a7-4ae0-b3c5-077aead8ba8a" timestamp="2026-10-11T12:52:07.923Z" tests="2" failures="0" errors="0" time="0.004">
-    <testcase name="status 200" time="0.004" classname="CartReAddProductBeforeCheckout"/>
-    <testcase name="cart has the keyboard" time="0.004" classname="CartReAddProductBeforeCheckout"/>
+  <testsuite name="Cart / Re-add Product Before Checkout" id="8e0dbe6f-e44e-4080-942c-d33caf5b8629" timestamp="2026-10-11T12:55:58.025Z" tests="2" failures="0" errors="0" time="0.347">
+    <testcase name="status 200" time="0.347" classname="CartReAddProductBeforeCheckout"/>
+    <testcase name="cart has the keyboard" time="0.347" classname="CartReAddProductBeforeCheckout"/>
   </testsuite>
-  <testsuite name="Discounts / Apply SAVE10" id="c83bed41-f354-4213-8bcd-334fd80d9f04" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.003">
-    <testcase name="status 200" time="0.003" classname="DiscountsApplySave10"/>
+  <testsuite name="Discounts / Apply SAVE10" id="28cbc3c4-8be1-4442-8a98-28d3271de0a5" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.246">
+    <testcase name="status 200" time="0.246" classname="DiscountsApplySave10"/>
   </testsuite>
-  <testsuite name="Discounts / Apply Invalid Discount" id="63c747d7-0334-49ae-9a06-c24a9b2a021c" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 400" time="0.002" classname="DiscountsApplyInvalidDiscount"/>
+  <testsuite name="Discounts / Apply Invalid Discount" id="b3735fbd-ba3f-41c7-950c-292548ab3dc7" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 400" time="0.001" classname="DiscountsApplyInvalidDiscount"/>
   </testsuite>
-  <testsuite name="Orders / Create Order" id="49128f22-7847-445b-8233-cd29b9c5a2e9" timestamp="2026-10-11T12:52:07.923Z" tests="2" failures="0" errors="0" time="0.003">
-    <testcase name="status 201" time="0.003" classname="OrdersCreateOrder"/>
-    <testcase name="final total = subtotal + tax - discount" time="0.003" classname="OrdersCreateOrder"/>
+  <testsuite name="Orders / Create Order" id="a44f1846-f473-4750-9ebe-b2458efff748" timestamp="2026-10-11T12:55:58.025Z" tests="2" failures="0" errors="0" time="0.269">
+    <testcase name="status 201" time="0.269" classname="OrdersCreateOrder"/>
+    <testcase name="final total = subtotal + tax - discount" time="0.269" classname="OrdersCreateOrder"/>
   </testsuite>
-  <testsuite name="Orders / Get Order Details" id="2985c44c-6cf6-410a-ab61-3e1312b437bc" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 200" time="0.002" classname="OrdersGetOrderDetails"/>
+  <testsuite name="Orders / Get Order Details" id="4ef75f72-6a07-489a-9d08-a756ed8e28b9" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 200" time="0.001" classname="OrdersGetOrderDetails"/>
   </testsuite>
-  <testsuite name="Orders / Order Not Found" id="73c02ee0-6b2f-4302-96e4-8256cca1d696" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
-    <testcase name="status 404" time="0.002" classname="OrdersOrderNotFound"/>
+  <testsuite name="Orders / Order Not Found" id="86a99eab-0411-4edf-a155-d07dd5214cbb" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="status 404" time="0.001" classname="OrdersOrderNotFound"/>
   </testsuite>
-  <testsuite name="Payments / Successful Payment" id="6b3d22bc-d06f-4225-8b57-8c5f9ed34548" timestamp="2026-10-11T12:52:07.923Z" tests="2" failures="0" errors="0" time="0.032">
-    <testcase name="status 200" time="0.032" classname="PaymentsSuccessfulPayment"/>
-    <testcase name="only last four digits returned" time="0.032" classname="PaymentsSuccessfulPayment"/>
+  <testsuite name="Payments / Successful Payment" id="106ec4db-c7e0-4bf4-a12a-9dbb17176c0d" timestamp="2026-10-11T12:55:58.025Z" tests="2" failures="0" errors="0" time="0.198">
+    <testcase name="status 200" time="0.198" classname="PaymentsSuccessfulPayment"/>
+    <testcase name="only last four digits returned" time="0.198" classname="PaymentsSuccessfulPayment"/>
   </testsuite>
-  <testsuite name="Payments / Add Item For Declined Payment" id="b15de0b5-73ee-4bd4-87c2-dacaa734d800" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.098">
-    <testcase name="status 200" time="0.098" classname="PaymentsAddItemForDeclinedPayment"/>
+  <testsuite name="Payments / Add Item For Declined Payment" id="4425fcfe-5759-4fdc-9a2f-9203cd1e126b" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.282">
+    <testcase name="status 200" time="0.282" classname="PaymentsAddItemForDeclinedPayment"/>
   </testsuite>
-  <testsuite name="Payments / Create Order For Declined Payment" id="38baaca6-9aad-4172-9d3c-62d70072c0c4" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.069">
-    <testcase name="status 201" time="0.069" classname="PaymentsCreateOrderForDeclinedPayment"/>
+  <testsuite name="Payments / Create Order For Declined Payment" id="d954d30f-6f3f-4a2f-b735-62e7f0797e3a" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="status 201" time="0.002" classname="PaymentsCreateOrderForDeclinedPayment"/>
   </testsuite>
-  <testsuite name="Payments / Declined Payment" id="c01c3a18-c231-477e-9a26-e548c15c3496" timestamp="2026-10-11T12:52:07.923Z" tests="2" failures="0" errors="0" time="0.003">
-    <testcase name="status 200" time="0.003" classname="PaymentsDeclinedPayment"/>
-    <testcase name="payment declined" time="0.003" classname="PaymentsDeclinedPayment"/>
+  <testsuite name="Payments / Declined Payment" id="00e5f85a-edf4-4b7c-8b31-4982bd58d40b" timestamp="2026-10-11T12:55:58.025Z" tests="2" failures="0" errors="0" time="0.002">
+    <testcase name="status 200" time="0.002" classname="PaymentsDeclinedPayment"/>
+    <testcase name="payment declined" time="0.002" classname="PaymentsDeclinedPayment"/>
   </testsuite>
-  <testsuite name="Negative Tests / Controlled Failed API Response" id="8eabf2e4-d6b4-4d9c-b6d9-974dfa0f0e63" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.001">
+  <testsuite name="Negative Tests / Controlled Failed API Response" id="679e0e79-da04-4c65-b909-3ac6535bdf03" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.001">
     <testcase name="status 500" time="0.001" classname="NegativeTestsControlledFailedApiResponse"/>
   </testsuite>
-  <testsuite name="Negative Tests / Out Of Stock Add" id="b51f2db7-98dd-4469-a9fb-e7f32ee160b7" timestamp="2026-10-11T12:52:07.923Z" tests="1" failures="0" errors="0" time="0.002">
+  <testsuite name="Negative Tests / Out Of Stock Add" id="b8a112d6-e677-43bd-bb89-865d19867268" timestamp="2026-10-11T12:55:58.025Z" tests="1" failures="0" errors="0" time="0.002">
     <testcase name="status 409" time="0.002" classname="NegativeTestsOutOfStockAdd"/>
   </testsuite>
 </testsuites>
