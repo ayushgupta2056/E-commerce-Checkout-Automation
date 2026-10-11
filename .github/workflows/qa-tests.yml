@@ -58,6 +58,27 @@ jobs:
         continue-on-error: true
         run: python -m pytest --tracing on --video on --screenshot on --output test-results
 
+      - uses: actions/setup-node@v4
+        if: always()
+        with:
+          node-version: "20"
+
+      - name: Run Postman collection with Newman
+        id: newman
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ -n "$TARGET_BASE_URL" ]; then
+            API_URL="$TARGET_BASE_URL"
+            curl -fsS -X POST -o /dev/null "$API_URL/demo/reset"
+          else
+            API_URL="http://127.0.0.1:5000"
+            python database/reset_database.py
+            python app/app.py > reports/newman_app.log 2>&1 &
+            for i in $(seq 1 40); do curl -fsS -o /dev/null "$API_URL/login" && break; sleep 0.5; done
+          fi
+          npx -y newman@6 run postman/ecommerce_collection.json             -e postman/local_environment.json --env-var "baseUrl=$API_URL"             --reporters cli,junit --reporter-junit-export reports/newman.xml | tee reports/newman.log
+
       - name: Build dashboard
         if: always()
         env:
@@ -86,5 +107,5 @@ jobs:
           commit_message: "Publish QA results from run ${{ github.run_number }}"
 
       - name: Fail the job if tests failed
-        if: steps.pytest.outcome == 'failure'
+        if: steps.pytest.outcome == 'failure' || steps.newman.outcome == 'failure'
         run: exit 1

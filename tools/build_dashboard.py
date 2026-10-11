@@ -146,6 +146,16 @@ def attach_evidence(tests: list[dict], out_dir: Path) -> None:
                 test["evidence"].append({"kind": "failure screenshot", "path": target.relative_to(out_dir).as_posix()})
 
 
+def newman_summary() -> dict | None:
+    path = REPORTS_DIR / "newman.xml"
+    if not path.exists():
+        return None
+    root = ET.parse(path).getroot()
+    cases = list(root.iter("testcase"))
+    failed = sum(1 for case in cases if case.find("failure") is not None or case.find("error") is not None)
+    return {"requests": len(cases), "failed": failed}
+
+
 def summarise(tests: list[dict]) -> dict:
     counts = {status: sum(1 for test in tests if test["status"] == status) for status in ("passed", "failed", "error", "skipped", "xfailed")}
     counts["total"] = len(tests)
@@ -182,7 +192,7 @@ def evidence_links(test: dict, meta: dict) -> str:
     return " · ".join(links) or "—"
 
 
-def render(meta: dict, junit_meta: dict, tests: list[dict], summary: dict, history: list[dict]) -> str:
+def render(meta: dict, junit_meta: dict, tests: list[dict], summary: dict, history: list[dict], postman: dict | None) -> str:
     status_order = {"failed": 0, "error": 1, "xfailed": 2, "skipped": 3, "passed": 4}
     category_order = {"UI": 0, "API": 1, "Integration": 2, "Other": 3}
     rows = []
@@ -218,6 +228,13 @@ def render(meta: dict, junit_meta: dict, tests: list[dict], summary: dict, histo
         else ""
     )
     overall = "failed" if summary["failed"] or summary["error"] else "passed"
+    postman_html = ""
+    if postman:
+        postman_html = (
+            f'<div class="banner {"failed" if postman["failed"] else "passed"}">Postman collection (Newman): '
+            f'{postman["requests"] - postman["failed"]}/{postman["requests"]} requests passed all assertions — '
+            '<a href="newman.xml">Newman JUnit</a> · <a href="newman.log">Newman log</a></div>'
+        )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -281,6 +298,8 @@ pre {{ white-space:pre-wrap; font-size:12px; max-height:260px; overflow:auto; ba
   </div>
 
   <div class="banner {overall}">{"All executed tests passed" if overall == "passed" else "Some tests failed"} — {summary["passed"]} passed, {summary["failed"] + summary["error"]} failed, {summary["xfailed"]} known defects (xfail), {summary["skipped"]} skipped, {summary["duration"]}s total.</div>
+
+  {postman_html}
 
   <div class="cards">
     <div class="card"><div class="label">Total tests</div><div class="value">{summary["total"]}</div></div>
@@ -366,13 +385,13 @@ def main() -> None:
     )
     history = history[-HISTORY_LIMIT:]
 
-    for name in ("report.html", "junit.xml", "test_run.log"):
+    for name in ("report.html", "junit.xml", "test_run.log", "newman.xml", "newman.log"):
         if (REPORTS_DIR / name).exists():
             shutil.copy2(REPORTS_DIR / name, out_dir / name)
     (out_dir / "history.json").write_text(json.dumps(history, indent=2), encoding="utf-8")
     (out_dir / "summary.json").write_text(json.dumps({"meta": meta, "summary": summary, "tests": tests}, indent=2), encoding="utf-8")
     (out_dir / ".nojekyll").write_text("", encoding="utf-8")
-    (out_dir / "index.html").write_text(render(meta, junit_meta, tests, summary, history), encoding="utf-8")
+    (out_dir / "index.html").write_text(render(meta, junit_meta, tests, summary, history, newman_summary()), encoding="utf-8")
     print(f"Dashboard written to {out_dir} ({summary['passed']}/{summary['total']} passed)")
 
 
