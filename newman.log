@@ -1,0 +1,122 @@
+newman
+
+E-Commerce Checkout Automation APIs
+
+❏ Authentication
+↳ Login - Success
+  POST http://127.0.0.1:5000/api/login [200 OK, 188B, 80ms]
+  ✓  status 200
+
+↳ Login - Invalid
+  POST http://127.0.0.1:5000/api/login [401 Unauthorized, 173B, 3ms]
+  ✓  status 401
+
+❏ Products
+↳ Get All Products
+  GET http://127.0.0.1:5000/api/products [200 OK, 971B, 2ms]
+  ✓  status 200
+
+↳ Search Products
+  GET http://127.0.0.1:5000/api/products?search=Mouse [200 OK, 302B, 2ms]
+  ✓  status 200
+
+↳ Get Product By ID
+  GET http://127.0.0.1:5000/api/products/101 [200 OK, 287B, 2ms]
+  ✓  status 200
+
+↳ Product Not Found
+  GET http://127.0.0.1:5000/api/products/99999 [404 Not Found, 162B, 2ms]
+  ✓  status 404
+
+❏ Cart
+↳ Add Product To Cart
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 4ms]
+  ✓  status 200
+
+↳ Update Cart Quantity
+  PUT http://127.0.0.1:5000/api/cart/items/101 [200 OK, 378B, 4ms]
+  ✓  status 200
+
+↳ View Cart
+  GET http://127.0.0.1:5000/api/cart?user_id=1 [200 OK, 378B, 2ms]
+  ✓  status 200
+
+↳ Remove Cart Item
+  DELETE http://127.0.0.1:5000/api/cart/items/101?user_id=1 [200 OK, 241B, 3ms]
+  ✓  status 200
+
+↳ Re-add Product Before Checkout
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 382B, 4ms]
+  ✓  status 200
+  ✓  cart has the keyboard
+
+❏ Discounts
+↳ Apply SAVE10
+  POST http://127.0.0.1:5000/api/cart/discount [200 OK, 386B, 3ms]
+  ✓  status 200
+
+↳ Apply Invalid Discount
+  POST http://127.0.0.1:5000/api/cart/discount [400 Bad Request, 168B, 2ms]
+  ✓  status 400
+
+❏ Orders
+↳ Create Order
+  POST http://127.0.0.1:5000/api/orders [201 Created, 431B, 3ms]
+  ✓  status 201
+  ✓  final total = subtotal + tax - discount
+
+↳ Get Order Details
+  GET http://127.0.0.1:5000/api/orders/1 [200 OK, 426B, 2ms]
+  ✓  status 200
+
+↳ Order Not Found
+  GET http://127.0.0.1:5000/api/orders/99999 [404 Not Found, 160B, 2ms]
+  ✓  status 404
+
+❏ Payments
+↳ Successful Payment
+  POST http://127.0.0.1:5000/api/payments [200 OK, 608B, 32ms]
+  ✓  status 200
+  ✓  only last four digits returned
+
+↳ Add Item For Declined Payment
+  POST http://127.0.0.1:5000/api/cart/items [200 OK, 378B, 98ms]
+  ✓  status 200
+
+↳ Create Order For Declined Payment
+  POST http://127.0.0.1:5000/api/orders [201 Created, 426B, 69ms]
+  ✓  status 201
+
+↳ Declined Payment
+  POST http://127.0.0.1:5000/api/payments [200 OK, 617B, 3ms]
+  ✓  status 200
+  ✓  payment declined
+
+❏ Negative Tests
+↳ Controlled Failed API Response
+  GET http://127.0.0.1:5000/api/simulate-error [500 Internal Server Error, 200B, 1ms]
+  ✓  status 500
+
+↳ Out Of Stock Add
+  POST http://127.0.0.1:5000/api/cart/items [409 Conflict, 167B, 2ms]
+  ✓  status 409
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │               22 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │               22 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                0 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │               26 │                0 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 599ms                                     │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 4.97kB (approx)                          │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 14ms [min: 1ms, max: 98ms, s.d.: 27ms] │
+└───────────────────────────────────────────────────────────────┘
