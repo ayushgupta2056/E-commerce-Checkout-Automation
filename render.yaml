@@ -1,0 +1,20 @@
+# Render Blueprint for the public demo of the application under test.
+# Free web services use an ephemeral filesystem: database/ecommerce.db is
+# recreated from schema.sql + seed_data.sql whenever the service restarts.
+services:
+  - type: web
+    name: qa-shop-checkout-demo
+    runtime: python
+    plan: free
+    branch: interview-demo
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --app-dir app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
+    healthCheckPath: /login
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: DEMO_MODE
+        value: "1"
+      - key: SECRET_KEY
+        generateValue: true

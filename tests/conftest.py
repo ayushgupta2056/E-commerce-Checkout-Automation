@@ -13,7 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from utilities.api_client import ApiClient
-from utilities.config_reader import BASE_URL, SCREENSHOT_DIR
+from utilities.config_reader import BASE_URL, IS_REMOTE_TARGET, SCREENSHOT_DIR
 from utilities.database_client import DatabaseClient, reset_test_data
 from utilities.logger import get_logger
 from utilities.screenshots import save_screenshot
@@ -24,6 +24,13 @@ logger = get_logger(__name__)
 
 @pytest.fixture(autouse=True)
 def app_server():
+    if IS_REMOTE_TARGET:
+        # The deployed demo runs with DEMO_MODE=1, which allows resetting its sample data.
+        response = requests.post(f"{BASE_URL}/demo/reset", allow_redirects=False, timeout=60)
+        assert response.status_code == 303, f"Could not reset remote demo data: HTTP {response.status_code}"
+        yield
+        return
+
     reset_test_data()
     process = subprocess.Popen(
         [sys.executable, "app/app.py"],
@@ -60,6 +67,8 @@ def api_client() -> ApiClient:
 
 @pytest.fixture
 def db_client() -> DatabaseClient:
+    if IS_REMOTE_TARGET:
+        pytest.skip("Database validation needs direct SQLite access; run against the local app.")
     client = DatabaseClient()
     yield client
     client.close()

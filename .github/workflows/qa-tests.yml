@@ -1,0 +1,111 @@
+name: QA Tests
+
+on:
+  push:
+    branches: [main, interview-demo]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "local = start the app inside the runner (UI + API + DB tests); live = run UI + API tests against the deployed demo"
+        type: choice
+        options: [local, live]
+        default: local
+      live_url:
+        description: "Deployed demo URL (used when target = live)"
+        type: string
+        default: ""
+
+concurrency:
+  group: qa-tests-${{ github.ref }}-${{ inputs.target || 'local' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Select target
+        id: target
+        run: |
+          if [ "${{ inputs.target }}" = "live" ]; then
+            echo "TARGET_BASE_URL=${{ inputs.live_url }}" >> "$GITHUB_ENV"
+            echo "subdir=live" >> "$GITHUB_OUTPUT"
+          else
+            echo "subdir=." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Pytest + Playwright suite
+        id: pytest
+        continue-on-error: true
+        run: python -m pytest --tracing on --video on --screenshot on --output test-results
+
+      - uses: actions/setup-node@v4
+        if: always()
+        with:
+          node-version: "20"
+
+      - name: Run Postman collection with Newman
+        id: newman
+        if: always()
+        continue-on-error: true
+        run: |
+          if [ -n "$TARGET_BASE_URL" ]; then
+            API_URL="$TARGET_BASE_URL"
+            curl -fsS -X POST -o /dev/null "$API_URL/demo/reset"
+          else
+            API_URL="http://127.0.0.1:5000"
+            python database/reset_database.py
+            python app/app.py > reports/newman_app.log 2>&1 &
+            for i in $(seq 1 40); do curl -fsS -o /dev/null "$API_URL/login" && break; sleep 0.5; done
+          fi
+          npx -y newman@6 run postman/ecommerce_collection.json             -e postman/local_environment.json --env-var "baseUrl=$API_URL"             --reporters cli,junit --reporter-junit-export reports/newman.xml | tee reports/newman.log
+
+      - name: Build dashboard
+        if: always()
+        env:
+          PAGES_BASE_URL: ${{ env.PAGES_URL }}/${{ steps.target.outputs.subdir == 'live' && 'live' || '' }}
+        run: |
+          curl -fsSL "${PAGES_BASE_URL%/}/history.json" -o previous-history.json || echo "[]" > previous-history.json
+          python tools/build_dashboard.py --out site --history previous-history.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-report-${{ github.run_number }}
+          path: |
+            site
+            reports
+          retention-days: 30
+
+      - name: Publish dashboard to GitHub Pages
+        if: always() && github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          destination_dir: ${{ steps.target.outputs.subdir }}
+          keep_files: true
+          commit_message: "Publish QA results from run ${{ github.run_number }}"
+
+      - name: Fail the job if tests failed
+        if: steps.pytest.outcome == 'failure' || steps.newman.outcome == 'failure'
+        run: exit 1

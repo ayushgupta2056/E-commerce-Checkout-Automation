@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
 </head>
 <body class="login-body">
+{% if demo_mode %}
+<div class="demo-banner" data-testid="demo-banner">
+    <span><strong>Public QA demo.</strong> Sample data and simulated payments only. Data resets when the server restarts.</span>
+    <form method="post" action="/demo/reset"><button type="submit" data-testid="demo-reset-button">Reset demo data</button></form>
+</div>
+{% endif %}
     <main class="login-panel">
         <h1>QA Shop Login</h1>
         {% if error %}<div class="alert error" data-testid="error-message">{{ error }}</div>{% endif %}
@@ -17,6 +23,15 @@
             <input id="password" name="password" type="password" data-testid="password-input">
             <button type="submit" data-testid="login-button">Login</button>
         </form>
+        {% if demo_mode %}
+        <section class="demo-hint" data-testid="demo-credentials">
+            <p><strong>Demo test data</strong></p>
+            <p>Login: testuser@example.com / Test@123</p>
+            <p>Discount code: SAVE10</p>
+            <p>Approved test card: 4111111111111111, 12/30, CVV 123</p>
+            <p>Declined test card: 4000000000000002, 12/30, CVV 123</p>
+        </section>
+        {% endif %}
     </main>
 </body>
 </html>
