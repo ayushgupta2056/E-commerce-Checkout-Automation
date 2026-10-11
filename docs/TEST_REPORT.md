@@ -13,6 +13,8 @@ https://ayushgupta2056.github.io/E-commerce-Checkout-Automation/
 | GitHub Actions run #1 (`0dfc531`, [link](https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38139917711)) | App started inside the runner | **11 passed, 5 xfailed** in 28.9 s |
 | GitHub Actions run #2 (`workflow_dispatch`, [link](https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38140467984)) | **Live Render deployment** | **9 passed, 2 skipped, 5 xfailed** in 34.3 s (DB tests skip remotely by design) |
 | GitHub Actions run #3 (`7f0c838`, [link](https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38140814793)) | App inside runner | **11 passed, 5 xfailed**; Newman **22 requests, 26/26 assertions** |
+| GitHub Actions run #6 (`460fe01`, push, [link](https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38141086452)) | App inside runner | **1 failed**, 10 passed, 5 xfailed — flaky race in `CartPage` (`assert 0.0 == 15.5`) |
+| Runs on fix `b6e353b` (push + 2 manual) | App inside runner ×2, live ×1 | 11 passed / 5 xfailed (×2); 9 passed / 2 skipped / 5 xfailed (live) |
 | Newman, original collection | Live deployment | 19 requests, **4 assertions failed** (request-order bug, fixed) |
 | Newman, fixed collection | Live deployment | 22 requests, **26/26 assertions passed** |
 

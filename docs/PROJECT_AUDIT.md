@@ -51,6 +51,7 @@ directly showed `ModuleNotFoundError: No module named 'itsdangerous'`.
 | # | Problem | Fix |
 | --- | --- | --- |
 | F1 | `itsdangerous` (needed by `SessionMiddleware`) missing from `requirements.txt`; `jinja2` only present through pytest-html | Added both (`d5e11ed`). Suite then: 11 passed |
+| F3 | Flaky UI test: CI run [38141086452](https://github.com/ayushgupta2056/E-commerce-Checkout-Automation/actions/runs/38141086452) failed `test_complete_checkout_with_discount_and_order_history` with `assert 0.0 == 15.5`. `CartPage` clicked with `no_wait_after=True`, returning before the cart page reloaded; `amount()` then read the old totals | `CartPage` waits for the form-submit navigation with `expect_navigation()` (`b6e353b`). 3 local + 3 CI runs green afterwards |
 | F2 | Postman collection failed 4/19 assertions when run with Newman: "Remove Cart Item" emptied the cart, so "Create Order" returned 400 and the payment requests cascaded to 422/500 | Re-add an item before checkout; separate order for the declined-payment check; stronger assertions (`f10bb3a`). Now 26/26 assertions pass |
 
 ### In the application under test (open, documented, `xfail` tests)
@@ -95,8 +96,8 @@ independent price oracle; cross-layer integration tests; per-test DB reset for i
 failure screenshots; HTML + JUnit reports; negative scenarios across all layers.
 
 Weaknesses worth knowing:
-- Page-object clicks use `force=True, no_wait_after=True`, which skips actionability checks.
-  Waiting then relies on the following `expect(...)`. Normal clicks would be stricter.
+- Page-object clicks use `force=True` (and outside `CartPage`, `no_wait_after=True`), which skips
+  actionability checks; waiting relies on the next `expect(...)`. This caused one real flaky failure (F3).
 - `ProductDetailsPage.add_to_cart` swallows a `TimeoutError` waiting for `/cart` so the same
   method works for success and error cases.
 - Several tests cover many scenarios each (e.g. the empty-cart/invalid-discount/payment-errors test),
