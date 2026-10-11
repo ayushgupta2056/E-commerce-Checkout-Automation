@@ -1,0 +1,121 @@
+2026-10-11 12:37:20,089 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:20,626 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:20,630 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:20,631 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:20,633 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:20,633 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:20,635 [INFO] utilities.api_client - Response status: 401
+2026-10-11 12:37:20,635 [INFO] utilities.api_client - GET /api/products
+2026-10-11 12:37:20,637 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:20,637 [INFO] utilities.api_client - GET /api/products
+2026-10-11 12:37:20,639 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:20,639 [INFO] utilities.api_client - GET /api/products/102
+2026-10-11 12:37:20,641 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:20,641 [INFO] utilities.api_client - GET /api/products/99999
+2026-10-11 12:37:20,643 [INFO] utilities.api_client - Response status: 404
+2026-10-11 12:37:20,813 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:21,338 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:21,342 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,342 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:21,346 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,346 [INFO] utilities.api_client - PUT /api/cart/items/101
+2026-10-11 12:37:21,350 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,350 [INFO] utilities.api_client - POST /api/cart/discount
+2026-10-11 12:37:21,355 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,355 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:21,358 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:21,358 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:21,362 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,362 [INFO] utilities.api_client - GET /api/orders/1
+2026-10-11 12:37:21,364 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:21,580 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:22,104 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:22,108 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,109 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:22,111 [INFO] utilities.api_client - Response status: 409
+2026-10-11 12:37:22,111 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:22,115 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,115 [INFO] utilities.api_client - PUT /api/cart/items/104
+2026-10-11 12:37:22,117 [INFO] utilities.api_client - Response status: 409
+2026-10-11 12:37:22,117 [INFO] utilities.api_client - POST /api/cart/discount
+2026-10-11 12:37:22,119 [INFO] utilities.api_client - Response status: 400
+2026-10-11 12:37:22,119 [INFO] utilities.api_client - DELETE /api/cart/items/104
+2026-10-11 12:37:22,123 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,123 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:22,125 [INFO] utilities.api_client - Response status: 400
+2026-10-11 12:37:22,125 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:22,129 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,129 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:22,133 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:22,133 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:22,137 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,137 [INFO] utilities.api_client - GET /api/orders/99999
+2026-10-11 12:37:22,139 [INFO] utilities.api_client - Response status: 404
+2026-10-11 12:37:22,139 [INFO] utilities.api_client - GET /api/simulate-error
+2026-10-11 12:37:22,140 [INFO] utilities.api_client - Response status: 500
+2026-10-11 12:37:22,357 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:22,881 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:22,885 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,885 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:22,889 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,890 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:22,893 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:22,893 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:22,897 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,897 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:22,901 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:22,901 [INFO] utilities.api_client - GET /api/products/104
+2026-10-11 12:37:22,903 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:23,091 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:23,615 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:23,619 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:23,620 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:23,624 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:23,624 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:23,628 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:23,628 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:23,631 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:23,850 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:24,378 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:24,382 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:24,382 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:24,386 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:24,386 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:24,390 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:24,390 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:24,394 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:24,612 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:25,136 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:25,140 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:25,141 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:25,145 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:25,145 [INFO] utilities.api_client - POST /api/orders
+2026-10-11 12:37:25,148 [INFO] utilities.api_client - Response status: 201
+2026-10-11 12:37:25,149 [INFO] utilities.api_client - POST /api/payments
+2026-10-11 12:37:25,152 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:25,370 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:25,914 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:25,918 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:25,919 [INFO] utilities.api_client - POST /api/cart/items
+2026-10-11 12:37:25,920 [INFO] utilities.api_client - Response status: 500
+2026-10-11 12:37:26,635 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:27,412 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:27,416 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:27,846 [INFO] utilities.api_client - GET /api/cart
+2026-10-11 12:37:27,849 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:27,849 [INFO] utilities.database_client - Executing database SELECT one
+2026-10-11 12:37:27,849 [INFO] utilities.database_client - Executing database SELECT many
+2026-10-11 12:37:28,198 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:28,902 [INFO] utilities.api_client - POST /api/login
+2026-10-11 12:37:28,905 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:29,367 [INFO] utilities.api_client - GET /api/orders/1
+2026-10-11 12:37:29,370 [INFO] utilities.api_client - Response status: 200
+2026-10-11 12:37:29,370 [INFO] utilities.database_client - Executing database SELECT one
+2026-10-11 12:37:29,371 [INFO] utilities.database_client - Executing database SELECT many
+2026-10-11 12:37:29,371 [INFO] utilities.database_client - Executing database SELECT one
+2026-10-11 12:37:29,767 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:31,743 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:33,118 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:34,194 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:35,344 [INFO] utilities.database_client - Resetting SQLite test data
+2026-10-11 12:37:47,039 [INFO] utilities.database_client - Resetting SQLite test data
