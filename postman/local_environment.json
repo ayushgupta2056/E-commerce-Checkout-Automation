@@ -26,6 +26,11 @@
       "key": "orderId",
       "value": "",
       "enabled": true
+    },
+    {
+      "key": "declinedOrderId",
+      "value": "",
+      "enabled": true
     }
   ],
   "_postman_variable_scope": "environment",
