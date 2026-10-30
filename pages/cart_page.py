@@ -18,7 +18,9 @@ class CartPage:
 
     def apply_discount(self, code: str) -> None:
         self.page.get_by_test_id("discount-code-input").fill(code)
-        self.page.get_by_test_id("apply-discount-button").click(force=True, no_wait_after=True)
+        # The form POST reloads the cart page; wait for it so totals aren't read from the old page.
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            self.page.get_by_test_id("apply-discount-button").click(force=True)
 
     def checkout(self) -> None:
         self.page.get_by_test_id("checkout-link").click(no_wait_after=True)
